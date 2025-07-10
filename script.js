@@ -11,6 +11,7 @@ function shuffle(array) {
 
 export function startQuiz() {
   document.querySelector('.start').style.display = 'none';
+  document.getElementById('battle').style.display = 'none';
   document.getElementById('results').style.display = 'none';
   quizQuestions = shuffle([...questions]).slice(0, 10);
   currentIndex = 0;
@@ -76,6 +77,25 @@ export function restartQuiz() {
   document.querySelector('.start').style.display = 'block';
 }
 
+export function openBattle() {
+  document.querySelector('.start').style.display = 'none';
+  document.getElementById('quiz').style.display = 'none';
+  document.getElementById('results').style.display = 'none';
+  const battle = document.getElementById('battle');
+  battle.style.display = 'block';
+  new QRious({
+    element: document.getElementById('qr'),
+    value: 'https://www.mei-deo.ch',
+    size: 200
+  });
+}
+
+export function startBattle() {
+  alert('Battle gestartet!');
+}
+
 // make functions available globally for inline handlers
 window.startQuiz = startQuiz;
 window.restartQuiz = restartQuiz;
+window.openBattle = openBattle;
+window.startBattle = startBattle;
