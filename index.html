@@ -5,13 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FaGe Quiz</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="qrious.min.js"></script>
 </head>
 <body>
   <div class="container">
     <div class="start">
       <h1>FaGe Quiz</h1>
       <p>Teste dein Wissen rund um die Pflege!</p>
-      <button onclick="startQuiz()">Quiz starten</button>
+      <button onclick="startQuiz()"><span class="icon">🎓</span> Training</button>
+      <button onclick="openBattle()"><span class="icon">⚔️</span> Battle</button>
+    </div>
+    <div id="battle" style="display:none;">
+      <h2>Battle</h2>
+      <canvas id="qr" width="200" height="200"></canvas>
+      <p>Spieler: <span id="player-count">1</span></p>
+      <button onclick="startBattle()">Start</button>
     </div>
     <div id="quiz" style="display:none;"></div>
     <div id="results" style="display:none;"></div>
