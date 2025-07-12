@@ -114,6 +114,23 @@ export function startBattle() {
   alert('Battle gestartet!');
 }
 
+export function openBattle() {
+  document.querySelector('.start').style.display = 'none';
+  document.getElementById('quiz').style.display = 'none';
+  document.getElementById('results').style.display = 'none';
+  const battle = document.getElementById('battle');
+  battle.style.display = 'block';
+  new QRious({
+    element: document.getElementById('qr'),
+    value: 'https://www.mei-deo.ch',
+    size: 200
+  });
+}
+
+export function startBattle() {
+  alert('Battle gestartet!');
+}
+
 // make functions available globally for inline handlers
 window.startQuiz = startQuiz;
 window.restartQuiz = restartQuiz;
