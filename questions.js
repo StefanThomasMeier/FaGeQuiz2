@@ -330,3 +330,8 @@ const questions=[
     "erklaerung": "Trockene Haut benötigt Feuchtigkeit und Fett. Rückfettende Präparate (W/O-Emulsionen) unterstützen die Wiederherstellung der Hautbarriere, während Seife und Alkohol die Haut zusätzlich austrocknen."
   }
 
+];
+export default questions;
+
+
+
