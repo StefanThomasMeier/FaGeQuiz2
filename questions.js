@@ -1,5 +1,7 @@
 const questions=[
   {
+    "id": 1,
+
     "frage": "Was ist die normale Körpertemperatur eines erwachsenen Menschen?",
     "antworten": [
       "35.5 - 36.5 °C",
@@ -11,6 +13,8 @@ const questions=[
     "erklaerung": "Die normale Körperkerntemperatur eines gesunden Erwachsenen liegt im Bereich von 36,5 °C bis 37,5 °C. Werte darüber oder darunter können auf eine Erkrankung hinweisen."
   },
   {
+    "id": 2,
+
     "frage": "Welcher Pulsbereich gilt bei einem gesunden Erwachsenen in Ruhe als normal?",
     "antworten": [
       "40-60 Schläge/Minute",
@@ -22,6 +26,9 @@ const questions=[
     "erklaerung": "Ein Ruhepuls von 60 bis 80 Schlägen pro Minute ist bei Erwachsenen typisch. Bei Sportlern kann er auch niedriger sein."
   },
   {
+
+    "id": 3,
+
     "frage": "Was bedeutet die Abkürzung 'RR' in der medizinischen Dokumentation?",
     "antworten": [
       "Regelmässiger Rhythmus",
@@ -33,6 +40,8 @@ const questions=[
     "erklaerung": "RR steht für die Blutdruckmessung nach der Methode von Scipione Riva-Rocci, dem Erfinder der Blutdruckmanschette."
   },
   {
+    "id": 4,
+
     "frage": "Welche der folgenden Maßnahmen gehört zur Standard-Händehygiene?",
     "antworten": [
       "Händewaschen nur mit Wasser",
@@ -44,6 +53,9 @@ const questions=[
     "erklaerung": "Die hygienische Händedesinfektion mit einem alkoholischen Präparat für 30 Sekunden ist die wichtigste Maßnahme zur Verhütung von Infektionen."
   },
   {
+
+    "id": 5,
+
     "frage": "Was ist eine Aspiration?",
     "antworten": [
       "Eine Form der Lungenentzündung",
@@ -55,6 +67,9 @@ const questions=[
     "erklaerung": "Aspiration bezeichnet das Verschlucken, bei dem Speisen, Flüssigkeiten oder andere Substanzen in die Atemwege gelangen, was zu ernsthaften Komplikationen führen kann."
   },
   {
+
+    "id": 6,
+
     "frage": "Welche Lagerungsposition wird bei Atemnot oft als erleichternd empfunden?",
     "antworten": [
       "Flache Rückenlage",
@@ -66,6 +81,9 @@ const questions=[
     "erklaerung": "Eine aufrechte Sitzposition oder Oberkörperhochlagerung erleichtert die Atmung, da die Lunge sich besser ausdehnen kann und der Druck auf das Zwerchfell reduziert wird."
   },
   {
+
+    "id": 7,
+
     "frage": "Was versteht man unter Prophylaxe?",
     "antworten": [
       "Die Behandlung einer bestehenden Krankheit",
@@ -77,6 +95,9 @@ const questions=[
     "erklaerung": "Prophylaxe umfasst alle Maßnahmen, die dazu dienen, das Entstehen von Krankheiten oder Komplikationen (z.B. Dekubitus, Thrombose) zu verhindern."
   },
   {
+
+    "id": 8,
+
     "frage": "Ein Patient hat einen systolischen Blutdruck von 160 mmHg. Wie ist dieser Wert einzuordnen?",
     "antworten": [
       "Hypotonie (zu niedrig)",
@@ -88,6 +109,9 @@ const questions=[
     "erklaerung": "Ein systolischer Wert von 140 mmHg oder höher bei wiederholten Messungen wird als Hypertonie (Bluthochdruck) klassifiziert."
   },
   {
+
+    "id": 9,
+
     "frage": "Was ist das Hauptziel bei der Mobilisation von Patienten?",
     "antworten": [
       "Patienten möglichst schnell zu bewegen",
@@ -331,7 +355,10 @@ const questions=[
   }
 
 ];
+
+
+questions.forEach((q, idx) => {
+  if (q.id === undefined) q.id = idx + 1;
+});
 export default questions;
-
-
 
