@@ -1,9 +1,12 @@
 import questions from './questions.js';
+import { createBattle, watchPlayerCount } from './battleStore.js';
 
 let quizQuestions = [];
 let currentIndex = 0;
 let score = 0;
 let userAnswers = [];
+let battleWatcher = null;
+let currentBattleId = null;
 
 function shuffle(array) {
   return array.sort(() => Math.random() - 0.5);
@@ -11,7 +14,12 @@ function shuffle(array) {
 
 export function startQuiz() {
   document.querySelector('.start').style.display = 'none';
+  document.getElementById('battle').style.display = 'none';
   document.getElementById('results').style.display = 'none';
+  if (battleWatcher) {
+    clearInterval(battleWatcher);
+    battleWatcher = null;
+  }
   quizQuestions = shuffle([...questions]).slice(0, 10);
   currentIndex = 0;
   score = 0;
@@ -74,8 +82,40 @@ function showResults() {
 export function restartQuiz() {
   document.getElementById('results').style.display = 'none';
   document.querySelector('.start').style.display = 'block';
+  if (battleWatcher) {
+    clearInterval(battleWatcher);
+    battleWatcher = null;
+  }
+}
+
+export function openBattle() {
+  document.querySelector('.start').style.display = 'none';
+  document.getElementById('quiz').style.display = 'none';
+  document.getElementById('results').style.display = 'none';
+  const battle = document.getElementById('battle');
+  battle.style.display = 'block';
+  const session = createBattle();
+  currentBattleId = session.id;
+  if (battleWatcher) {
+    clearInterval(battleWatcher);
+  }
+  battleWatcher = watchPlayerCount(session.id, count => {
+    document.getElementById('player-count').textContent = String(count);
+  });
+  document.getElementById('player-count').textContent = String(session.playerCount);
+  new QRious({
+    element: document.getElementById('qr'),
+    value: 'https://www.mei-deo.ch',
+    size: 200
+  });
+}
+
+export function startBattle() {
+  alert('Battle gestartet!');
 }
 
 // make functions available globally for inline handlers
 window.startQuiz = startQuiz;
 window.restartQuiz = restartQuiz;
+window.openBattle = openBattle;
+window.startBattle = startBattle;
